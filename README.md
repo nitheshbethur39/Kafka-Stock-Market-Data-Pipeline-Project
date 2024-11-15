@@ -1,50 +1,40 @@
 
 # 📈 Kafka Stock Market Data Pipeline Project
 
-This project demonstrates how to build a real-time stock market data pipeline using **Apache Kafka**, **AWS S3**, **AWS Glue**, and **AWS Athena**. This end-to-end workflow covers:
-
-- Simulating stock market data using Python.
-- Producing real-time data streams using Apache Kafka.
-- Consuming data from Kafka and storing it in AWS S3.
-- Crawling the data using AWS Glue to build a catalog.
-- Querying the data in real-time using AWS Athena.
+This project demonstrates how to build a real-time stock market data pipeline using **Apache Kafka**, **AWS S3**, **AWS Glue**, and **AWS Athena**.
 
 ---
 
-## 🛠️ Prerequisites
+## 🔍 Introduction
 
-Before starting, ensure you have the following installed:
-
-- Python 3.5+ (with Jupyter Notebook)
-- Apache Kafka
-- AWS CLI
-- AWS account with access to S3, EC2, Glue, and Athena
-
-### Python Libraries Required
-Install the necessary Python libraries using:
-```bash
-pip install pandas kafka-python boto3 s3fs
-```
+This project involves creating a data pipeline to simulate, process, and analyze real-time stock market data. We utilize modern data engineering tools like Apache Kafka for streaming data, AWS S3 for storage, AWS Glue for data cataloging, and AWS Athena for querying.
 
 ---
 
-## 🖥️ Project Architecture
+## 🏗️ Architecture
 
-The project is structured as follows:
+![Project Architecture](architecture.jpg)
 
-1. **Data Simulation**: 
-   - Uses a static CSV dataset to simulate real-time stock market data.
-   - Data is processed using Python to generate a continuous stream of events.
+The architecture consists of:
 
-2. **Kafka Pipeline**:
-   - **Producer**: Sends simulated stock market data to the Kafka server.
-   - **Kafka Cluster**: Hosted on an AWS EC2 instance, which includes both Kafka and Zookeeper.
-   - **Consumer**: Consumes data from Kafka and uploads it to an AWS S3 bucket.
+1. **Data Source**: Simulated stock market data using Python.
+2. **Kafka Producer**: Sends real-time data to a Kafka server hosted on AWS EC2.
+3. **Kafka Consumer**: Consumes the data and uploads it to an AWS S3 bucket.
+4. **AWS Glue**: Crawls the S3 data and builds a catalog.
+5. **AWS Athena**: Queries the data stored in S3 for analysis.
 
-3. **Data Storage & Querying**:
-   - **AWS S3**: Stores the data consumed from Kafka.
-   - **AWS Glue**: Crawls the data in S3 and creates a catalog for easy querying.
-   - **AWS Athena**: Runs SQL queries on the cataloged data for real-time analysis.
+---
+
+## 💻 Technology Used
+
+1. **Programming Language**:
+   - Python
+2. **Streaming Framework**:
+   - Apache Kafka
+3. **Cloud Platform**:
+   - AWS S3, EC2, Glue, Athena
+4. **Libraries**:
+   - `pandas`, `kafka-python`, `boto3`, `s3fs`
 
 ---
 
@@ -62,7 +52,16 @@ The project is structured as follows:
 
 ---
 
-## 🚀 Getting Started
+## 📊 Dataset Used
+
+We used a sample stock market dataset to simulate real-time streaming data.
+
+- **Original Data Source**: [Stock Market Dataset](https://www.kaggle.com/)
+- **Description**: Contains stock data with columns like `date`, `open`, `high`, `low`, `close`, and `volume`.
+
+---
+
+## ⚙️ Setup Instructions
 
 ### 1. Set Up Kafka on AWS EC2
 
@@ -103,37 +102,26 @@ bin/kafka-topics.sh --create --topic stock_market --bootstrap-server localhost:9
 
 ---
 
-## 📤 Uploading Data to S3
+## 🚀 Data Pipeline Execution
 
-1. **Configure AWS CLI**:
-   ```bash
-   aws configure
-   ```
-2. **Create an S3 bucket**:
-   - Go to the AWS S3 console and create a bucket (ensure a unique bucket name).
-3. **Upload data from Kafka Consumer**:
-   - The consumer will automatically upload JSON files to the S3 bucket.
+1. **Data Generation**: The producer reads data from a CSV file and streams it to the Kafka topic.
+2. **Data Consumption**: The consumer fetches data from Kafka and uploads it to an S3 bucket in real time.
+3. **Data Crawling**: AWS Glue crawler extracts metadata from S3 and builds a catalog.
+4. **Data Querying**: Use Athena to query data directly from the catalog.
 
 ---
 
-## 🗂️ Setting Up AWS Glue and Athena
+## 📜 Data Model
 
-### 1. Create an AWS Glue Crawler
-- Navigate to the AWS Glue console.
-- Create a crawler to crawl the S3 bucket data and build a catalog.
-
-### 2. Query Data in Athena
-- Go to AWS Athena and run SQL queries on the Glue catalog.
-- Example query:
-  ```sql
-  SELECT * FROM stock_market_data LIMIT 10;
-  ```
+![Data Model](datamodel.jpg)
 
 ---
 
-## 📊 Real-Time Data Analysis
+## 📂 Scripts
 
-With the data pipeline in place, you can visualize real-time stock data using AWS Athena. The pipeline ensures data is continuously fetched, stored, and analyzed efficiently.
+1. **Extract**: [extract.py](mage_files/extract.py)
+2. **Load**: [load.py](mage_files/load.py)
+3. **Transform**: [transform.py](mage_files/transform.py)
 
 ---
 
@@ -142,6 +130,14 @@ With the data pipeline in place, you can visualize real-time stock data using AW
 - For production deployments, avoid using open access rules (`0.0.0.0/0`) for your EC2 instances.
 - Use IAM roles to securely access AWS services.
 - Configure AWS Glue and Athena permissions properly.
+
+---
+
+## 🎯 Challenges Faced
+
+- Setting up Kafka on AWS EC2 and managing the network configurations.
+- Handling data ingestion at scale without overloading the Kafka broker.
+- Ensuring real-time data synchronization between the producer, consumer, and S3.
 
 ---
 
