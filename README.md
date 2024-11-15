@@ -13,7 +13,7 @@ This project involves creating a data pipeline to simulate, process, and analyze
 
 ## 🏗️ Architecture
 
-![Project Architecture](architecture.jpg)
+![Project Architecture](Architecture.jpg)
 
 The architecture consists of:
 
