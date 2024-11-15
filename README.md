@@ -56,7 +56,7 @@ The architecture consists of:
 
 We used a sample stock market dataset to simulate real-time streaming data.
 
-- **Original Data Source**: [Stock Market Dataset](https://www.kaggle.com/)
+- **Original Data Source**: [Stock Market Dataset](indexProcessed.csv)
 - **Description**: Contains stock data with columns like `date`, `open`, `high`, `low`, `close`, and `volume`.
 
 ---
@@ -111,18 +111,10 @@ bin/kafka-topics.sh --create --topic stock_market --bootstrap-server localhost:9
 
 ---
 
-## 📜 Data Model
-
-![Data Model](datamodel.jpg)
-
----
-
 ## 📂 Scripts
 
-1. **Extract**: [extract.py](mage_files/extract.py)
-2. **Load**: [load.py](mage_files/load.py)
-3. **Transform**: [transform.py](mage_files/transform.py)
-
+1. **Producer**: [KafkaProducer.py](KafkaProducer.ipynb)
+2. **Consumer**: [KafkaConsumer.py](KafkaConsumer.ipynb)
 ---
 
 ## 🛡️ Security Considerations
