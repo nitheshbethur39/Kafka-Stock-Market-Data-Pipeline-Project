@@ -1,13 +1,13 @@
 
 # 📈 Kafka Stock Market Data Pipeline Project
 
-This project demonstrates how to build a real-time stock market data pipeline using **Apache Kafka**, **AWS S3**, **AWS Glue**, and **AWS Athena**.
+This project demonstrates how to build a  stock market data pipeline using **Apache Kafka**, **AWS S3**, **AWS Glue**, and **AWS Athena**.
 
 ---
 
 ## 🔍 Introduction
 
-This project involves creating a data pipeline to simulate, process, and analyze real-time stock market data. We utilize modern data engineering tools like Apache Kafka for streaming data, AWS S3 for storage, AWS Glue for data cataloging, and AWS Athena for querying.
+This project involves creating a data pipeline to simulate, process, and analyze stock market data. We utilize modern data engineering tools like Apache Kafka for streaming data, AWS S3 for storage, AWS Glue for data cataloging, and AWS Athena for querying.
 
 ---
 
