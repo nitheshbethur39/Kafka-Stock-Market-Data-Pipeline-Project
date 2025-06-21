@@ -1,17 +1,17 @@
 
-# 📈 Kafka Stock Market Data Pipeline Project
+# Kafka Stock Market Data Pipeline Project
 
 This project demonstrates how to build a  stock market data pipeline using **Apache Kafka**, **AWS S3**, **AWS Glue**, and **AWS Athena**.
 
 ---
 
-## 🔍 Introduction
+## Introduction
 
 This project involves creating a data pipeline to simulate, process, and analyze stock market data. We utilize modern data engineering tools like Apache Kafka for streaming data, AWS S3 for storage, AWS Glue for data cataloging, and AWS Athena for querying.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ![Project Architecture](Architecture.jpg)
 
@@ -25,7 +25,7 @@ The architecture consists of:
 
 ---
 
-## 💻 Technology Used
+## Technology Used
 
 1. **Programming Language**:
    - Python
@@ -38,7 +38,7 @@ The architecture consists of:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── data/
@@ -52,7 +52,7 @@ The architecture consists of:
 
 ---
 
-## 📊 Dataset Used
+## Dataset Used
 
 We used a sample stock market dataset to simulate real-time streaming data.
 
@@ -61,7 +61,7 @@ We used a sample stock market dataset to simulate real-time streaming data.
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Set Up Kafka on AWS EC2
 
@@ -102,7 +102,7 @@ bin/kafka-topics.sh --create --topic stock_market --bootstrap-server localhost:9
 
 ---
 
-## 🚀 Data Pipeline Execution
+## Data Pipeline Execution
 
 1. **Data Generation**: The producer reads data from a CSV file and streams it to the Kafka topic.
 2. **Data Consumption**: The consumer fetches data from Kafka and uploads it to an S3 bucket in real time.
@@ -111,13 +111,13 @@ bin/kafka-topics.sh --create --topic stock_market --bootstrap-server localhost:9
 
 ---
 
-## 📂 Scripts
+## Scripts
 
 1. **Producer**: [KafkaProducer.py](KafkaProducer.ipynb)
 2. **Consumer**: [KafkaConsumer.py](KafkaConsumer.ipynb)
 ---
 
-## 🛡️ Security Considerations
+## Security Considerations
 
 - For production deployments, avoid using open access rules (`0.0.0.0/0`) for your EC2 instances.
 - Use IAM roles to securely access AWS services.
@@ -125,7 +125,7 @@ bin/kafka-topics.sh --create --topic stock_market --bootstrap-server localhost:9
 
 ---
 
-## 🎯 Challenges Faced
+## Challenges Faced
 
 - Setting up Kafka on AWS EC2 and managing the network configurations.
 - Handling data ingestion at scale without overloading the Kafka broker.
@@ -133,7 +133,7 @@ bin/kafka-topics.sh --create --topic stock_market --bootstrap-server localhost:9
 
 ---
 
-## 🔗 References
+## References
 
 - [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
 - [AWS Glue Documentation](https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html)
